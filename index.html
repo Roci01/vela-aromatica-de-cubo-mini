@@ -192,8 +192,10 @@
       <label>¿Deseas empaque especial de regalo?</label>
       <select id="empaqueRegalo" onchange="actualizarPrecio()">
         <option value="estandar" selected>No, gracias (bolsita estándar)</option>
+        <option value="Caja kraft">Caja kraft (+120 CUP)</option>
         <option value="Caja plateada">Caja plateada (+280 CUP)</option>
       </select>
+
 
       <label>Cantidad (1–10):</label>
       <div style="display: flex; align-items: center; gap: 10px;">
@@ -241,7 +243,8 @@
     
       // Precio extra por empaque
       let extraEmpaque = 0;
-      if (empaque === "Caja plateada") extraEmpaque = precioPlateada;
+      if (empaque === "Caja kraft") extraEmpaque = precioKraft;
+      else if (empaque === "Caja plateada") extraEmpaque = precioPlateada;
     
       // Total = (precio unidad × cantidad) + precio empaque
       const total = (precioUnidad * cantidad) + extraEmpaque;
@@ -249,7 +252,7 @@
       document.getElementById("precioUnidad").textContent = "💰 Precio por unidad: " + precioUnidad + " CUP";
       document.getElementById("precioTotal").textContent = "💵 Precio total: " + total + " CUP";
     }
-    
+  
     function cambiarCantidad(delta) {
       var input = document.getElementById('cantidad');
       var value = parseInt(input.value || 1, 10);
