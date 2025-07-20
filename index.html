@@ -292,9 +292,10 @@
         // Solo el precio de la vela (con o sin aroma)
         var precioUnidad = aroma === "Sin aroma" ? precioSinAroma : precioConAroma;
       
-        // Suma del empaque
+         // Suma del empaque
         var extraEmpaque = 0;
-        if (empaque === "Caja plateada") extraEmpaque = precioPlateada;
+        if (empaque === "Caja kraft") extraEmpaque = precioKraft;
+        else if (empaque === "Caja plateada") extraEmpaque = precioPlateada;
       
         // Total final
         var precioTotal = (precioUnidad * cantidad) + extraEmpaque;
